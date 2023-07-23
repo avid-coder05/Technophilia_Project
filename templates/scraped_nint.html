@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/color-theif/2.0.1/color-theif.min.js"></script>
+    <title>Some of the Best Switch Games</title>
+</head>
+<body>
+    <center><h1 id="title">15 of the Best Switch Games</h1></center>
+    <div class="container">
+        {% for i in data %}
+        <div class="event" style="background-image: url('{{ i.image }}');">
+            <div class="card">
+                <div class="text">
+                    Name: {{ i.name }}<br>
+                    Genres: {% for genre in i.genres %}
+                    {{ genre }}
+                    {% if loop.last == False %}
+                    ,&nbsp;
+                    {% endif %}
+                    {% endfor %}
+                    <br>
+                    Language: {{ i.locale }}<br>
+                    Price: {{ i.price }}<br>
+                    Release Date: {{ i.releaseDate }}<br>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
