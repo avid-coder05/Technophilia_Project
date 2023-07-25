@@ -13,8 +13,7 @@
     <center><h1 id="title">15 of the Best Switch Games</h1></center>
     <div class="container">
         {% for i in data %}
-        <div class="event" style="background-image: url('{{ i.image }}');">
-            <div class="image"></div>
+        <div class="card">
             <div class="overlay">
                 <div class="text">
                     Genres: {% for genre in i.genres %}
@@ -29,9 +28,12 @@
                     Release Date: {{ i.releaseDate }}<br>
                 </div>
             </div>
-            <div class="name">
-                {{ i.name }}
-            </div>
+            <a href="{{ i.next_url }}" target="_blank">
+                <div class="name">
+                    <b>{{ i.name }}</b>
+                </div>
+            </a>
+            <div class="image" style="background: url('{{ i.image }}') no-repeat center top;"></div>
         </div>
         {% endfor %}
     </div>

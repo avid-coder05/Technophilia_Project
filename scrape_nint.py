@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import json
 
+check = open("scraped_data.txt", "w+")
+
 def scrape_nintendo_site():
     url = "https://www.nintendo.com/store/games/best-sellers/"
     page = requests.get(url)
@@ -50,7 +52,9 @@ def collect_game_data():
         insert_dict["price"] = i["prices"]["minimum"]["finalPrice"]
         insert_dict["releaseDate"] = i["releaseDate"][:-14]
 
-        image_url = get_image_urls(i["name"]+" switch cover")
+        insert_dict["next_url"] = "https://www.nintendo.com/store/products/" + i["urlKey"]
+
+        image_url = get_image_urls(i["name"] + " switch cover")
         insert_dict["image"] = image_url
 
         clean_page_json.append(insert_dict)
