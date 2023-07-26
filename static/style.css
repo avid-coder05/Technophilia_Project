@@ -60,7 +60,7 @@ a {
     height: 7vh;
     width: 6vw;
 }
-@media (orientation: landscape) {
+@media only screen and (min-width: 950px) {
     .container {
         max-height: 272vh;
         justify-content: space-between;
@@ -127,7 +127,7 @@ a {
         transition: max-height 0.5s ease-in;
     }
 }
-@media (orientation: portrait) {
+@media only screen and (max-width: 950px) {
     .container {
         flex-direction: column;
         flex-wrap: nowrap;
