@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup as bs
-import pandas as pd
 import json
 
 check = open("scraped_data.txt", "w+")
