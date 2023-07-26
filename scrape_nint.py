@@ -12,29 +12,6 @@ def scrape_nintendo_site():
     page_json = str(page_json)[str(page_json).find("{"):-9]
     return page_json
 
-def get_image_urls(keyword):
-    url = "https://bing-image-search1.p.rapidapi.com/images/search"
-
-    querystring = {"q":keyword}
-
-    headers = {
-	    "X-RapidAPI-Key": "1ac03e599emshccabdf7a33bff3dp15eb97jsnff32f92c9de9",
-	    "X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com"
-    }
-
-    response = requests.get(url, headers=headers, params=querystring)
-
-    img_url = response.json()['value']
-
-    for img in img_url:
-        if(img['width'] > img['height']):
-            continue
-        else:
-            img_url = img['contentUrl']
-            break
-
-    return img_url
-
 def collect_game_data():
     page_json = json.loads(scrape_nintendo_site())
     page_json = page_json['props']['pageProps']['page']['content']['merchandisedGrid']
@@ -53,8 +30,10 @@ def collect_game_data():
 
         insert_dict["next_url"] = "https://www.nintendo.com/store/products/" + i["urlKey"]
 
-        image_url = get_image_urls(i["name"] + " switch cover")
-        insert_dict["image"] = image_url
+        image_url = "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_300/"
+        image_part = i["productImage"]["publicId"]
+
+        insert_dict["image"] = image_url + image_part
 
         clean_page_json.append(insert_dict)
 

@@ -11,9 +11,10 @@ a {
     text-decoration-color: #F2E3BC;
 }
 .container {
-    background-color: #F2E3BC;
+    background-color: burlywood;
     display: flex;
     flex-wrap: wrap;
+    width: 97vw;
 }
 .card {
     display: flex;
@@ -38,19 +39,32 @@ a {
     z-index: 10;
 }
 .footer {
-    height: 5vh;
+    height: 8vh;
     width: 97vw;
-    background-color: burlywood;
+    background-color: #E5F4E3;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 .git {
-    height: 100%;
+    background-image: url("./images/git.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 8vh;
+    width: 8vw;
 }
-@media only screen and (min-width: 950px) {
+.linkedin {
+    background-image: url("./images/linkedin.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 7vh;
+    width: 6vw;
+}
+@media (orientation: landscape) {
     .container {
-        width: 97vw;
-        height: 345vh;
+        max-height: 272vh;
+        justify-content: space-between;
+        align-items: center;
     }
     .card {
         flex-direction: column;
@@ -58,7 +72,7 @@ a {
         align-items: center;
         position: relative;
         width: 27vw;
-        height: 60vh;
+        height: 45vh;
         margin: 4vh 2vw;
         border-radius: 5ch;
         border-width: 0.4rem;
@@ -66,7 +80,7 @@ a {
     .image {
         position: absolute;
         top: 0.5vh;
-        height: 51vh;
+        height: 31vh;
         width: 26.2vw;
         background-size: 170%;
         border-top-left-radius: 3.5ch;
@@ -113,29 +127,28 @@ a {
         transition: max-height 0.5s ease-in;
     }
 }
-@media only screen and (max-width: 950px) {
+@media (orientation: portrait) {
     .container {
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-around;
-        width: 100vw;
-        height: 1250vh;
+        height: 860vh;
     }
     .card {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        min-height: 72.5vh;
-        width: 65vw;
+        min-height: 50vh;
+        width: 59vw;
         border-radius: 4ch;
         border-width: 0.4rem;
         overflow: hidden;
     }
     .image {
         background-size: cover;
-        min-height: 51.2vh;
-        width: 64vw;
+        min-height: 28.2vh;
+        width: 60vw;
         top: 0;
         border-top-left-radius: 3ch;
         border-top-right-radius: 3ch;
@@ -145,7 +158,7 @@ a {
         background-color: #31081F;
         margin: 0.5vh;
         max-height: 18vh;
-        width: 64vw;
+        width: 58vw;
         border-bottom-left-radius: 1.3rem;
         border-bottom-right-radius: 1.3rem;
         line-height: 1.3rem;
@@ -156,6 +169,14 @@ a {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         margin: 0;
-        width: 64vw;
+        width: 58vw;
+    }
+    .git {
+        height: 8vh;
+        width: 14vw;
+    }
+    .linkedin {
+        height: 6vh;
+        width: 12vw;
     }
 }
